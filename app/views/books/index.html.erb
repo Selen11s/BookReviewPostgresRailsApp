@@ -1,0 +1,18 @@
+<h1 class="current-category"><%= params[:category] %></h1>
+
+<% if @books.count == 0 %>
+<h1>Ľutujeme, momentálne sa v danej kategórii nenachádzajú žiadne knihy</h1>
+
+<% else %>
+
+    <div class="row">
+<% @books.each do |book| %>
+    <div class="col-md-3">
+    <a href="/books/<%= book.id %>">
+        <%= image_tag book.bookavatar.url(:book_index), class: "book" %>
+    </a>
+    
+    </div>
+<% end %>    
+    </div>
+<% end %>

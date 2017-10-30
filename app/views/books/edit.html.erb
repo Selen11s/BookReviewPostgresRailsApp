@@ -1,0 +1,19 @@
+<h1>Upraviť knihu</h1>
+
+<%= simple_form_for @book, :html => {:multipart => true} do |f| %>
+  <%= f.file_field :bookavatar %>
+  <%= f.select :category_id, @categories %>
+  <%= f.input :title, label: "Názov Knihy" %>
+  <%= f.input :description, label: "O knihe" %>
+  <%= f.input :author, label: "Autor" %>
+  <%= f.button :submit, label: "Pridať Knihu", class:"btn-custom2" %>
+
+<% end %>
+
+
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>
